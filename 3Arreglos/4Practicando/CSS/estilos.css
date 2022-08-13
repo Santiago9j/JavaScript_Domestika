@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+.mesa{
+    width: 55%;
+    height: 60%;
+    background-color: blue;
+    border-radius: 25px;
+    padding: 2%;
+}
+.principal{
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tarjeta{
+    width: 15%;
+    height: 22%;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    margin: 5px;
+    float: left;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
