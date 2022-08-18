@@ -51,3 +51,7 @@
     transform: rotateY(-180deg);
 }
 /*Hasta acá finalizamos lo nuevo.*/
+
+.cierto{
+    opacity: 0;
+}

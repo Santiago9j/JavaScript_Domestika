@@ -22,26 +22,36 @@ function repartirTarjetas(){
     })
 }
 function descubrir() {
-    var totDescubiertas = document.querySelectorAll(".descubierta");
-    //Lo siguiente permite que solo se puedan descubrir dos tarjetas.
+    var totDescubiertas = document.querySelectorAll(".descubierta:not(.cierto)");
     if (totDescubiertas.length > 1){
-        return; //Finaliza la función.
+        return; 
     }
     this.classList.add("descubierta");
     
     console.log(totDescubiertas.length)
-    //Ahora, vamos a verificar que las dos tarjetas sean iguales.
     if (totDescubiertas.length!=1){
-        return; //Todavia falta descubrir tarjetas.
+        return; 
     }
-    totDescubiertas = document.querySelectorAll(".descubierta");
-    //Ahora, para continuar, vamor a ir a la linea 16 y vamos agregar lo siguiente:
-    // "<div class='tarjeta' data-valor='"+elemento+"'>"+
+    totDescubiertas = document.querySelectorAll(".descubierta:not(.cierto)");
+    comparar(totDescubiertas);
+}
+function comparar(totDescubiertas){
     if (totDescubiertas[0].dataset.valor === totDescubiertas[1].dataset.valor){
-        console.log("Correcto")
+        correcto(totDescubiertas);
     } else {
-        console.log("Incorrecto.")
+        incorrecto(totDescubiertas);
     }
+}
+function correcto(totDescubiertas){
+    totDescubiertas.forEach(function(elemento){
+        elemento.classList.add("cierto"); //Desaparce las tarjetas.
+    })
+}
+function incorrecto(totDescubiertas){
+    totDescubiertas.forEach(function(elemento){
+        elemento.classList.remove("descubierta"); //Desaparce las tarjetas.
+    })
+    
 }
 repartirTarjetas();
 document.querySelectorAll(".tarjeta").forEach(function(elemento) {
