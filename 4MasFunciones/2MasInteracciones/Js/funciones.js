@@ -22,17 +22,15 @@ function repartirTarjetas(){
     })
 }
 function descubrir() {
-    var totDescubiertas = document.querySelectorAll(".descubierta:not(.cierto)");
+    var totDescubiertas = document.querySelectorAll(".descubierta:not(.acertada)");
     if (totDescubiertas.length > 1){
         return; 
     }
     this.classList.add("descubierta");
-    
-    console.log(totDescubiertas.length)
     if (totDescubiertas.length!=1){
         return; 
     }
-    totDescubiertas = document.querySelectorAll(".descubierta:not(.cierto)");
+    totDescubiertas = document.querySelectorAll(".descubierta:not(.acertada)");
     comparar(totDescubiertas);
 }
 function comparar(totDescubiertas){
@@ -44,13 +42,19 @@ function comparar(totDescubiertas){
 }
 function correcto(totDescubiertas){
     totDescubiertas.forEach(function(elemento){
-        elemento.classList.add("cierto"); //Desaparce las tarjetas.
+        elemento.classList.add("acertada"); //Desaparce las tarjetas.
     })
 }
 function incorrecto(totDescubiertas){
-    totDescubiertas.forEach(function(elemento){
-        elemento.classList.remove("descubierta"); //Desaparce las tarjetas.
-    })
+    totDescubiertas.forEach(function(elemento) {
+        elemento.classList.add("error");
+    });
+    setTimeout(function() {
+        totDescubiertas.forEach(function(elemento) {
+          elemento.classList.remove("descubierta");
+          elemento.classList.remove("error");
+        });
+      }, 1000);
     
 }
 repartirTarjetas();
