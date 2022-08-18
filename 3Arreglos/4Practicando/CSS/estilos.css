@@ -27,4 +27,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /*Desde acá empieza lo nuevo.*/
+    cursor: pointer;
+    transition: 0.5s;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
 }
+.tarjeta_contenido{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+    border-radius: 10px;
+}
+.tarjeta.descubierta {
+    transform: rotateY(-180deg);
+}
+/*Hasta acá finalizamos lo nuevo.*/
